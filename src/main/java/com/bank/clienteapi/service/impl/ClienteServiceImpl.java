@@ -31,6 +31,12 @@ public class ClienteServiceImpl implements ClienteService {
                 .orElseThrow(() -> new ClienteNotFoundException("Cliente no encontrado"));
     }
 
+    @Override
+    public Cliente obtenerClientePorDni(String dni) {
+        return clienteRepository.findByDni(dni)
+                .orElseThrow(() -> new ClienteNotFoundException("Cliente no encontrado"));
+    }
+
     private String generarNumeroCuentaUnico() {
         return ThreadLocalRandom.current().ints(0, 10)
                 .limit(10)

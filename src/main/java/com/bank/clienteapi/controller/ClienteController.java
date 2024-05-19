@@ -27,4 +27,10 @@ public class ClienteController {
         Cliente cliente = clienteService.obtenerClientePorNumeroCuenta(numeroCuenta);
         return new ResponseEntity<>(cliente, HttpStatus.OK);
     }
+
+    @GetMapping("/dni/{dni}")
+    public ResponseEntity<Cliente> obtenerClientePorDni(@PathVariable String dni) {
+        Cliente cliente = clienteService.obtenerClientePorDni(dni);
+        return new ResponseEntity<>(cliente, HttpStatus.OK);
+    }
 }
